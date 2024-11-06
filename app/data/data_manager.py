@@ -45,9 +45,6 @@ class QuestionFile(JsonFile): #Pour les fichiers json contenant les questions
                 if q_obj[1]["type"] == "text": #trie en fonction du type de question
                     questions.append(TextQuestion(question, proposition, answer, subject, category))
 
-                elif q_obj[1]["type"] == "link":
-                    questions.append(LinkQuestion(question, proposition, answer, subject, category))
-
                 else: #ici question type qcm dites classiques
                     questions.append(Question(question, proposition, answer, subject, category))
 
