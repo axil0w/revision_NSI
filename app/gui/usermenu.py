@@ -2,11 +2,14 @@ import tkinter as tk
 from tkinter import simpledialog
 
 class UserMenu(tk.Frame):
+    """
+    Correspond au menu des utilisateurs
+    """
     def __init__(self, master, switch_frame):
         super().__init__(master)
         self.switch_frame = switch_frame
-        self.user_manager = user_manager
-        
+
+        #couleurs relatives a la page
         self.bg_color = "#2B4162"        
         self.button_color = "#FA9F42"     
         self.title_color = "#871E1C"      
@@ -40,6 +43,4 @@ class UserMenu(tk.Frame):
 
     def add_user(self):
         pass
-        """user_name = simpledialog.askstring("Nouvel utilisateur", "Entrez votre prénom")
-        self.user_manager.add_user(user_name)"""
         
