@@ -1,38 +1,38 @@
 import json
-from app.models.question import Question, TextQuestion, LinkQuestion
+from app.models.question import Question, TextQuestion
 from app.models.user import User, UserManager
 from app.models.cours import Cours, CoursManager
 
 class JsonFile(object): #Pour les fichiers json
-"""
-classe mère traitant des objets json
-"""
+	"""
+	classe mère traitant des objets json
+	"""
 	def __init__(self, path):
 		self.path = path #emplacment du fichier
 		self.data = self.extract_data() #extrait les donnees du fichier
 
 	def extract_data(self):
-	"""
-	Permet d extraire les donnees dun fichier json
-	Out : les donnees du fichier en question
-	"""
+		"""
+		Permet d extraire les donnees dun fichier json
+		Out : les donnees du fichier en question
+		"""
 		with open(self.path) as file: #selon le module json
 			data = json.load(file)
 			return data
 
 class QuestionFile(JsonFile): #Pour les fichiers json contenant les questions
-"""
-Classe pour le fichier json contenant les questions
-"""
+	"""
+	Classe pour le fichier json contenant les questions
+	"""
 	def __init__(self, path):
 		super().__init__(path) #heritage de la classe des fichiers json
 		self.sorted_questions = self.sort_data() #ressort l'ensemble des questions
 
 	def sort_data(self):
-	"""
-	Permet de trier les donnees bruts du fichier json
-	Out : les donnees triee sous forme de dico avec les questions en objets
-	"""
+		"""
+		Permet de trier les donnees bruts du fichier json
+		Out : les donnees triee sous forme de dico avec les questions en objets
+		"""
 		data = {}
 		for obj in self.data.items(): #pour chaque categorie
 			questions = []
@@ -51,7 +51,7 @@ Classe pour le fichier json contenant les questions
 					questions.append(Question(question, proposition, answer, subject, category))
 
 				data[obj[0]] = questions #dico contenant les questions triees suivant le theme
-		return data #sous forme {"theme":[q1, q2, ...]} avec les Q sous forme d objets
+		return data#sous forme {"theme":[q1, q2, ...]} avec les Q sous forme d objets
 
 class UserFile(JsonFile):
 """
@@ -75,10 +75,10 @@ Pour les fichiers contenant les donnees des utilisateurs
 		return self.sorted_users
 
 	def users_dump(self, user_list): 
-	"""
-	Permet de faire sauvegarde des users et de leurs notes
-	dans le fichier json concerne
-	"""
+		"""
+		Permet de faire sauvegarde des users et de leurs notes
+		dans le fichier json concerne
+		"""
 		for user in user_list.keys():
 			grades = user_list[user].get_grades()
 			
@@ -101,25 +101,25 @@ Pour les fichiers contenant les donnees des utilisateurs
 		self.dumping_data()	
 
 	def dumping_data(self):
-	"""
-	Realise l ecriture dans le fichier json
-	"""
+		"""
+		Realise l ecriture dans le fichier json
+		"""
 		with open(self.path, 'w') as file: #reecrit les donnees dans le fichier json
 			json.dump(self.data, file)	
 
 class CoursFile(JsonFile):
-"""
-Traite le fichier json concernant le cours
-"""
+	"""
+	Traite le fichier json concernant le cours
+	"""
 	def __init__(self, path):
 		super().__init__(path) #heritage de la classe des fichier json
 		self.sorted_cours = self.sort_data()
 		
 	def sort_data(self):
-	"""
-	Permet de traiter les donnees brut du json 
-	Out :le dico contenant les donnees du cours
-	"""
+		"""
+		Permet de traiter les donnees brut du json
+		Out :le dico contenant les donnees du cours
+		"""
 		cours = {}
 		for category in self.data.keys(): #recupere les donnees du ficier json et les traite 
 			cours[category]=Cours(category, self.data[category]) #creer un dico contenant les cours
