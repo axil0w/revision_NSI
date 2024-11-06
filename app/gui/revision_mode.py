@@ -22,7 +22,8 @@ class RevisionMode(tk.Frame):
         self.title_label = tk.Label(self, text="Mode Révision", font=("Montserrat", 18), bg="lightblue")
 
         # Image de début pour le bouton
-        self.revision_image = Image.open("classement.png")  
+        image_path = "app\\assets\\images\\"
+        self.revision_image = Image.open(image_path + "classement.png")
         self.revision_image = self.revision_image.resize((100, 100))
         self.revision_image = ImageTk.PhotoImage(self.revision_image)
 

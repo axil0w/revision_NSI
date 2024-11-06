@@ -25,7 +25,7 @@ class MainMenu(tk.Frame):
         image_path = "app\\assets\\images\\"
 
         self.icon_revision = ImageTk.PhotoImage(Image.open(image_path + "revision.png").resize((30, 30)))
-        self.icon_cours = ImageTk.PhotoImage(Image.open(image_path + "cours.png").resize((30, 30)))
+        self.icon_course = ImageTk.PhotoImage(Image.open(image_path + "cours.png").resize((30, 30)))
         self.icon_exam = ImageTk.PhotoImage(Image.open(image_path + "exam.png").resize((30, 30)))
 
         # Bouton Révision avec icône
@@ -36,21 +36,21 @@ class MainMenu(tk.Frame):
         self.revision_button.pack(fill="x", pady=10)
 
         # Bouton Cours avec icône
-        self.cours_button = tk.Button(button_frame, text="   Mode Cours    ", font=("Montserrat", 16),
-                                    image=self.icon_cours, compound="left",  
-                                      command=self.open_cours_mode, padx=20, pady=10,
+        self.course_button = tk.Button(button_frame, text="   Mode Cours    ", font=("Montserrat", 16),
+                                    image=self.icon_course, compound="left",
+                                      command=self.open_course_mode, padx=20, pady=10,
                                       bg="#1F6F8B", fg="white", relief="flat")
-        self.cours_button.pack(fill="x", pady=10)
+        self.course_button.pack(fill="x", pady=10)
 
         # Bouton Examen avec icône
         self.exam_button = tk.Button(button_frame, text=" Mode Examen  ", font=("Montserrat", 16),
                                      image=self.icon_exam, compound="left",  
                                      command=self.open_exam_mode, padx=20, pady=10,
-                                     bg="#1F6F8B", fg="white", relief="raised")
+                                     bg="#1F6F8B", fg="white", relief="flat")
         self.exam_button.pack(fill="x", pady=10)
 
         # Bouton "users" en haut à gauche avec image détourée
-        self.user_image = Image.open("login.png").resize((150, 150))
+        self.user_image = Image.open(image_path + "login.png").resize((150, 150))
         self.user_image = ImageTk.PhotoImage(self.user_image)
 
         # Utilisation d'un Canvas pour afficher l'image du bouton utilisateur
@@ -63,9 +63,9 @@ class MainMenu(tk.Frame):
         """Fonction pour passer en mode révision"""
         self.switch_frame("RevisionMode")
 
-    def open_cours_mode(self):
-        """Fonction pour passer en mode cours"""
-        self.switch_frame("CoursMode")
+    def open_course_mode(self):
+        """Fonction pour passer en mode course"""
+        self.switch_frame("CourseMode")
 
     def open_exam_mode(self):
         """Fonction pour passer en mode examen"""
