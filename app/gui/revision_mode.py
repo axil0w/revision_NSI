@@ -5,54 +5,68 @@ class RevisionMode(tk.Frame):
     def __init__(self, master, switch_frame):
         super().__init__(master)
         self.switch_frame = switch_frame
-        
-        # Crée les widgets de l'interface
+
+        self.bg_color = "#2B4162"         
+        self.button_color = "#FA9F42"      
+        self.title_color = "#871E1C"       
+        self.highlight_color = "#0B6E4F"   
+        self.text_color = "#F0BCC5"        
+
         self.create_widgets()
 
-        # Affiche l'interface initiale
         self.show_initial_view()
 
     def create_widgets(self):
         """Crée et configure les widgets de l'interface RevisionMode"""
 
-        # Configuration de base
-        self.configure(bg="lightblue")
+        self.configure(bg=self.bg_color)
 
-        # Titre du mode Révision
-        self.title_label = tk.Label(self, text="Mode Révision", font=("Montserrat", 18), bg="lightblue")
+        self.title_label = tk.Label(
+            self, text="Mode Révision", font=("Montserrat", 24, "bold"), 
+            fg=self.title_color, bg=self.bg_color
+        )
 
-        # Image de début pour le bouton
-        image_path = "app\\assets\\images\\"
-        self.revision_image = Image.open(image_path + "classement.png")
-        self.revision_image = self.revision_image.resize((100, 100))
+        self.revision_image = Image.open("enter.png")
+        self.revision_image = self.revision_image.resize((80, 80))  
         self.revision_image = ImageTk.PhotoImage(self.revision_image)
 
-        # Boutons pour l'interface initiale
-        self.enter_button = tk.Button(self, image=self.revision_image, command=self.show_revision_view, borderwidth=0)
-        self.back_button = tk.Button(self, text="Retour", command=self.go_back)
+        self.enter_button = tk.Button(
+            self, image=self.revision_image, command=self.show_revision_view, 
+            borderwidth=0, bg=self.button_color, activebackground=self.highlight_color
+        )
+        
+        self.back_button = tk.Button(
+            self, text="Retour", command=self.go_back, font=("Montserrat", 14, "bold"),
+            fg=self.text_color, bg=self.button_color, borderwidth=0,
+            activebackground=self.highlight_color, activeforeground=self.text_color
+        )
 
-        # Widgets pour la vue de révision
-        self.new_content_label = tk.Label(self, text="Bienvenue dans la révision !", font=("Montserrat", 18), bg="lightgreen")
-        self.back_to_main_button = tk.Button(self, text="Retour au menu principal", command=self.go_back)
+        self.new_content_label = tk.Label(
+            self, text="Bienvenue dans la révision !", font=("Montserrat", 20),
+            fg=self.bg_color, bg=self.highlight_color
+        )
+        
+        self.back_to_main_button = tk.Button(
+            self, text="Retour au menu principal", command=self.go_back, 
+            font=("Montserrat", 14, "bold"), fg=self.text_color,
+            bg=self.button_color, borderwidth=0,
+            activebackground=self.highlight_color, activeforeground=self.text_color
+        )
 
     def show_initial_view(self):
         """Affiche la vue initiale du mode révision."""
-        self.configure(bg="lightblue")
+        self.configure(bg=self.bg_color)
         
-        # Affiche les widgets de l'interface initiale
         self.title_label.pack(pady=20)
         self.enter_button.pack(pady=10)
         self.back_button.pack(pady=10)
 
     def show_revision_view(self):
-        """Affiche la vue de révision en masquant l'interface initiale."""
-        # Masque les widgets de l'interface initiale
         self.title_label.pack_forget()
         self.enter_button.pack_forget()
         self.back_button.pack_forget()
 
-        # Change l'arrière-plan et affiche les widgets de la nouvelle interface
-        self.configure(bg="lightgreen")
+        self.configure(bg=self.highlight_color)
         self.new_content_label.pack(pady=20)
         self.back_to_main_button.pack(pady=10)
 
