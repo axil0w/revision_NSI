@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import simpledialog
 
 class UserMenu(tk.Frame):
-    def __init__(self, master, switch_frame, user_manager):
+    def __init__(self, master, switch_frame):
         super().__init__(master)
         self.switch_frame = switch_frame
         self.user_manager = user_manager
@@ -39,6 +39,7 @@ class UserMenu(tk.Frame):
         self.switch_frame("MainMenu")
 
     def add_user(self):
-        user_name = simpledialog.askstring("Nouvel utilisateur", "Entrez votre prénom")
-        self.user_manager.add_user(user_name)
+        pass
+        """user_name = simpledialog.askstring("Nouvel utilisateur", "Entrez votre prénom")
+        self.user_manager.add_user(user_name)"""
         
