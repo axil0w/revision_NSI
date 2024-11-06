@@ -33,5 +33,5 @@ class NSIQuizApp(tk.Tk):
         self.attributes("-fullscreen", self.state)
 
     def quitting(self, event):
-        print("e")
+        print("fin")
         self.quit()
