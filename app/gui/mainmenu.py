@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-
+from app.models.question import Question, TextQuestion
 # Classe pour le menu principal
 class MainMenu(tk.Frame):
     def __init__(self, master, switch_frame):
@@ -9,6 +9,9 @@ class MainMenu(tk.Frame):
 
         # Crée les widgets
         self.create_widgets()
+
+        question = Question("rrr", ("ah", "r"), ("ah", "r"), "OOP", "e")
+        question.create_canvas(self)
 
     def create_widgets(self):
         """Crée et place tous les widgets de l'interface utilisateur"""
