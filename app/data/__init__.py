@@ -1,8 +1,8 @@
 from data_manager import QuestionFile, UserFile, CoursFile
-from user import UserManager
-from question import QuestionManager
-from cours import CoursManager
-from board import Leaderboard
+from app.models.question import Question, TextQuestion, LinkQuestion
+from app.models.user import User, UserManager
+from app.models.cours import Cours, CoursManager
+from app.models.leaderboard import Leaderboard
 #differents chemins de fichiers
 question_file = "question.json"
 user_file = "users.json"
