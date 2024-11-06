@@ -24,8 +24,8 @@
 		"Quel est le nom de la première méthode d'une classe sous la forme def init(self): ...":
 {"type":"text", "points":null, "answer":"constructeur", "subject":["syntaxe", 0]},
 
-		"Associer":
-{"type":"link", "points":["self.variable = var", "Setter", "return self.variable", "Getter"], "answer":[[0,1], [2,3]], "subject":["voc", 0]},
+		"Sélectionnez le Getter : ":
+{"type":"qcm", "points":["self.variable = var", "Setter", "return self.variable", "return Quechua"], "answer":[2], "subject":["voc", 0]},
 		"Quels sont les différent types de variables spécifiques en Oop ?":
 {"type":"qcm", "points":["Variables dynamiques", "Variables d'instances", "Variables de classes", "Objets"], "answer":[1, 2], "subject":["voc", 1]},
 		"Quels sont les avantages de la Oop ?":
@@ -40,8 +40,8 @@
 	"resaux":{
 	"category":"Réseaux",
 	"questions":{
-		"Associer les couches avec leurs protocoles: ":
-{"type":"link","points":["HTTP","couche applications","TCP","couche Transport"],"answer":[[0,1],[2,3]],"subject":["schema", 0]},
+		"Quel est le protocole de la couche application ? ":
+{"type":"text", "points":null, "answer":"HTTP", "subject":["schema", 0]},
 		"Comment s'appelle le service qui permet de faire le lien entre une IP et un nom de domaine ?":
 {"type":"qcm","points":["Internet","DNS","ARP","HTTP"],"answer":1,"subject":["voc", 0]},
 		"Vous soupçonnez que des paquets se perdent entre votre ordinateur et leur destination. Quelle commande utiliseriez-vous pour trouver la source du problème efficacement ?":
