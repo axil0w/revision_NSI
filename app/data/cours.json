@@ -1,0 +1,33 @@
+{
+	"architecture":{"voc":{"answers":["bus d'adresse, de données et de contrôle", 
+	"L'assembleur est le langague de programmation initial", 
+	"#85 est la valeur 85, 85 est seulement l'adresse"], 
+	"cours":["architecturefiche.png"]}, 
+	"diagramme":{"answers":["machinefiche.png", "interface.png"], 
+	"cours":["architecturefiche.png"]}},
+	
+	"oop":{"voc":{"answers":["un Setter est de forme : self.variable = var / Un Getter est de forme : return self.variable",
+	"En OOP, il y a des variables d'instances, et des variables de classes"], 
+	"cours":["oopfiche.png"]}, 
+	"syntaxe":{"answers":["La première fonction dite 'init' est nommée le constructeur",
+	"la première déclaration peut se faire des façons suivantes : class Exemple, class Exemple() et class Exemple(object)"], 
+	"cours":["oopfiche.png"]}, 
+	"oop":{"answers":["Les avantages majeurs de l'OOP sont l'encapsulation et la lisibilité",
+	"L'OOP permet de l'héritage et de la surcharge"], 
+	"cours":["oopfiche.png"]}},
+	
+	"reseaux":{"voc":{"answers":["Le protocole à utiliser pour faire le lien doit être le protocole DNS", "Le port 80 est occupé par HTTP"], 
+	"cours":["reseauxfiche.png"]}, "code":{"answers":["La commande la plus efficace est : Traceroute",
+    "L'adresse MAC est codée en 48 bits"], 
+	"cours":["reseauxfiche.png"]}, "schema":{"answers":["HTTP est dans la couche application tandis que TCP est dans la couche transport",
+    "Le modèle OSI comporte 7 couches"], 
+	"cours":["reseauxfiche.png"]}},
+	
+	"bdd":{"voc":{"answers":["Le langage utilisé pour communiquer dans des Bases De Données est le SQL",
+    "Une clé primaire identifie de manière unique chaque enregistrement dans une table."], 
+	"cours":["bddfiche.png"]}, "coo":{"answers":["La principale fonction d'un SGBD est de gérer le stockage, la modification et l'extraction des données.",
+    "La différence principale est que la base de données relationnelle a une structure tabulaire (tables liées), tandis que l'irrationnelle n'a pas de structure fixe."], 
+	"cours":["bddfiche.png"]}, 
+	"code":{"answers":["La commande SQL qui récupère les données d'une table est : SELECT"], 
+	"cours":["bddfiche.png"]}}
+}

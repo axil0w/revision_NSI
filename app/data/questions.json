@@ -1,0 +1,75 @@
+{
+	"architecture":{
+	"category":"Architecture",
+	"questions":{
+		"Quels sont les trois types de bus ? (nom des bus seulement dans l'odre des initiales : (bus de) A.../C.../D...":
+{"type":"text", "points":null, "answer":"Adresse/Contrôle/Données", "subject":["voc",0]},
+		"Quels section n'appartient pas au diagramme de Van Neuman ?":
+{"type":"qcm", "points":["Arithmetic unit", "Control unit", "Data unit", "Register"], "answer":2, "subject":["diagramme", 0]},
+		"Qu'est ce que l'assembleur ?":
+{"type":"qcm", "points":["La connexion entre les registres", "Le groupement des composants", 
+			"Un programme de base", "Le language de programmation initial"], "answer":3, "subject":["voc", 1]},
+		"Choisir le bon ordre du diagramme interface machine - utilisateur :":
+{"type":"qcm", "points":["OS - Logiciel - matériel- utilisateur", "Matériel - OS - Logiciel - utilisateur", "OS - matériel - Logiciel - utilisateur", 
+"Logiciel - utilisateur - OS - matériel"], "answer":1, "subject":["diagramme", 1]},
+		"Quelle est la différence entre #85 et 85 ?":
+{"type":"qcm", "points":["85 est la valeur, #85 l'adresse 85", "#85 est la valeur, 85 l'adresse 85", 
+			"Il n'y en a pas : 85 et #85 sont la valeur", "Il n'y en a pas : 85 et #85 sont l'adresse"], "answer":1, "subject":["voc", 2]}
+	}
+	},
+	
+	"oop":{
+	"category":"Programmation orientée objet",
+	"questions":{
+		"Quel est le nom de la première méthode d'une classe sous la forme def init(self): ...":
+{"type":"text", "points":null, "answer":"constructeur", "subject":["syntaxe", 0]},
+
+		"Sélectionnez le Getter : ":
+{"type":"qcm", "points":["self.variable = var", "Setter", "return self.variable", "return Quechua"], "answer":[2], "subject":["voc", 0]},
+		"Quels sont les différent types de variables spécifiques en Oop ?":
+{"type":"qcm", "points":["Variables dynamiques", "Variables d'instances", "Variables de classes", "Objets"], "answer":[1, 2], "subject":["voc", 1]},
+		"Quels sont les avantages de la Oop ?":
+{"type":"qcm", "points":["Encapsulation", "Lisibilité", "Ordination", "Instantiation"], "answer":[0, 1], "subject":["oop", 0]},
+		"Syntaxe de la définition d'une classe :":
+{"type":"qcm", "points":["class Exemple(object):", "class exemple:", "class Exemple:", "class Exemple()"], "answer":[0,2,3], "subject":["syntaxe", 1]},
+		"Quelles sont les possibilités de la Oop ?":
+{"type":"qcm", "points":["Héritage", "Surcharge", "Arborescence", "Différence"], "answer":[0,1], "subject":["oop", 1]}
+	}
+	},
+	
+	"resaux":{
+	"category":"Réseaux",
+	"questions":{
+		"Quel est le protocole de la couche application ? ":
+{"type":"text", "points":null, "answer":"HTTP", "subject":["schema", 0]},
+		"Comment s'appelle le service qui permet de faire le lien entre une IP et un nom de domaine ?":
+{"type":"qcm","points":["Internet","DNS","ARP","HTTP"],"answer":1,"subject":["voc", 0]},
+		"Vous soupçonnez que des paquets se perdent entre votre ordinateur et leur destination. Quelle commande utiliseriez-vous pour trouver la source du problème efficacement ?":
+{"type":"qcm","points":["ipconfig","traceroute","nslookup","ping"],"answer":1,"subject":["code", 0]},
+		"Combien y-a-t-il de couches dans le modèle OSI ? ":
+{"type":"qcm","points":["7","5","5","6"],"answer":0,"subject":["schema", 1]},
+		"Voici l'adresse MAC: 5E FF 56 A2 AF 15 Sachant que cette adresse est exprimée en hexadécimal. Elle est donc codée sur : format réponse : nombre puis bits (ex:78 bits)":
+{"type":"text","points":null , "answer":"48 bits","subject":["code", 1]},
+		"À quoi correspond le port 80 ?":
+{"type":"qcm","points":["HTTP","SMTP","FTP","SSH"],"answer":0,"subject":["voc", 1]}
+	}
+	},
+	
+	"bdd":{
+	"category":"Bases de Données",
+	"questions":{
+		"Quelle est la principale fonction d'un système de gestion de bases de données (SGBD) ?":
+{"type":"qcm","points":[" Gérer le matériel informatique","Stocker, modifier et extraire des données","Créer des applications","Assurer la sécurité des ordinateurs"],"answer":1,"subject":["coo", 0]},
+		"Quel langage est utilisé pour interagir avec les bases de données relationnelles ?":
+{"type":"qcm","points":["HTML","Java","Python","SQL"],"answer":3,"subject":["voc", 0]},
+		"Qu'est-ce qu'une clé primaire ?":
+{"type":"qcm","points":["Un identifiant unique pour chaque enregistrement"," Une colonne avec des valeurs nulles","Un champ pour les relations entre tables","Un mot-clé SQL"],"answer":0,"subject":["voc", 1]},
+		"Quelle commande SQL récupère des données d'une table ?":
+{"type":"qcm","points":["INSERT","UPDATE","SELECT","DELETE"],"answer":2,"subject":["code", 0]},
+		"Quel est la principale différence entre base de données relationnelle et non relationnelle ? (Un seul mot attendu)":
+{"type":"text","points":null , "answer":"structure","subject":["coo", 1]}
+	}
+
+
+	}
+}

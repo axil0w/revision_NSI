@@ -1,0 +1,82 @@
+	Cahier des charges:
+Le Projet est un une plateforme de révision grâce à des Quiz
+Les questions sont des questions classiques pour le bac
+Plusieurs types de questions sont implémentées:
+	- QCM
+	- Réponse attendues à une question (Via un champ de texte) 
+La plateforme possède plusieurs modes:
+	- révision (avec séries de questions sur un même sujet prédéfini)
+	- cours (qui présente les cours)
+	- examen (avec des questions aléatoires)
+Le mode révision permet :
+	- d'enchainer des séries de questions sur un thème choisi
+	- de choisir un sujet parmis d'autres
+	- d'avoir une explication quant aux questions avec une réponse fausse
+Le mode cours permet :
+	- d'enchainer des notions de cours
+	- de choisir un thème de cour parmis d'autres
+Le mode examen permet :
+	- de se tester avec des questions aléatoires
+	- de choisir des thèmes de questions parmis d'autres
+	- d'obtenir une note sur l'ensemble des questions réalisées
+	- de se tester avec des questions aléatoires sur l'ensemble des thèmes
+La plateforme possède une interface afin d'avoir plusieurs utilisateurs (jusqu'à 5)
+Les utilisateurs ont la possibilité :
+	- de supprimer leur compte et ses données
+	- d'accéder à leurs notes
+La plateforme possède un classement des utilisateurs consultable à tout moment
+Le classement inclu les meilleures notes obtenues par les utilisateurs dans un examen avec tous les sujets
+Le Quiz doit posséder un écran d'accueil
+Le menu doit contenir des indications écrites :
+	- Un classement
+	- Une liste des utilisateurs
+	- Le mode choisis pour le travail
+
+Le Projet doit contenir de l'orienté objet
+Le Projet doit être implémenté de telle manière :
+	- à pouvoir ajouter des questions et des thèmes via les fichiers json
+Les questions et les autres données relative à la plateforme sont stockées à part
+La charte graphique doit être cohérente
+Les sons doivent être libres de droit
+Les images doivent être libres de droit
+Le jeu est codé en pyton3/tkinter
+
+
+		Cahier de recettes :
+Le projet est une plateforme
+La dite plateforme permet de réviser grâce à des Quiz
+Les questions sont en rapport avec le bac
+Il y a des questions sous forme de QCM
+Il y a des questions nécessitant une réponse unique
+La plateforme a plusieurs modes de révision
+
+Il y a un mode de révision
+Le mode révision est sous forme de séries de questions
+Les questions du mode révisions sont sur un sujet choisis
+Les réponses fausses dans le mode révision aboutissent sur une explication
+
+Il y a un mode cours
+Le mode cours est un enchainement de notions de cours
+Les sujets de cours sont choisis parmis d'autres
+
+Il y a un mode examen
+Le mode examen présente des tests
+Les tests du mode examen ont des questions aléatoires
+Il est possible dans le mode examen de se tester sur l'ensemble des sujets
+Suite à une série de question du mode examen, une note est donnée
+
+La plateforme donne l'accès à plusieurs utilisateurs (5)
+Un utilisateur peut supprimer son compte et ses données
+Un utilisateur peut accéder à ses notes
+
+L'écran d'accueil s'affiche en premier 
+Le menu possède un classement
+Le classement classe les meilleures notes des utilisateurs
+Le menu possède une liste des utilisateurs
+Le menu affiche le mode choisis pour le travail
+
+Le Projet contient de l'orienté objet
+Les questions sont stockées à part
+Les autres données relatives à la plateforme sont stockées à part
+Les sons sont libres de droit
+Les images sont libres de droit
