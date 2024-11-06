@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
-class CoursMode(tk.Frame):
+class CourseMode(tk.Frame):
     def __init__(self, master, switch_frame):
         super().__init__(master)
         self.switch_frame = switch_frame

@@ -1,5 +1,5 @@
 import tkinter as tk
-from app.gui.main_menu import MainMenu
+from app.gui.mainmenu import MainMenu
 from app.gui import *
 from app.gui.revision_mode import RevisionMode
 from app.gui.exam_mode import ExamMode

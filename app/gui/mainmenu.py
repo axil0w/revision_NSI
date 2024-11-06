@@ -22,9 +22,11 @@ class MainMenu(tk.Frame):
         button_frame.pack(pady=50)
 
         # Charger les images pour les icônes des boutons
-        self.icon_revision = ImageTk.PhotoImage(Image.open("revisions.png").resize((30, 30)))
-        self.icon_cours = ImageTk.PhotoImage(Image.open("cours.png").resize((30, 30)))
-        self.icon_exam = ImageTk.PhotoImage(Image.open("exam.png").resize((30, 30)))
+        image_path = "app\\assets\\images\\"
+
+        self.icon_revision = ImageTk.PhotoImage(Image.open(image_path + "revision.png").resize((30, 30)))
+        self.icon_cours = ImageTk.PhotoImage(Image.open(image_path + "cours.png").resize((30, 30)))
+        self.icon_exam = ImageTk.PhotoImage(Image.open(image_path + "exam.png").resize((30, 30)))
 
         # Bouton Révision avec icône
         self.revision_button = tk.Button(button_frame, text="  Mode Révision ", font=("Montserrat", 16),
