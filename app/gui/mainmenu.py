@@ -10,7 +10,7 @@ class MainMenu(tk.Frame):
         # Crée les widgets
         self.create_widgets()
 
-        question = Question("rrr", ("ah", "r"), ("ah", "r"), "OOP", "e")
+        question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e",True)
         question.create_canvas(self)
 
     def create_widgets(self):

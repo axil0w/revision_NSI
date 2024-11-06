@@ -3,13 +3,13 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 
 class Question(object):  # Pour les questions (type qcm par def)
-    def __init__(self, question, proposition, answer, subject, category):
+    def __init__(self, question, proposition, answer, subject, category, eval):
         self.question = question  # queston en elle meme
         self.proposition = proposition  # differentes propositions
         self.answer = answer  # reponse
         self.subject = subject  # sujet plus precis de la question
         self.category = category  # theme de la question
-
+        self.eval = eval  # si la question est une question d'evalution
 
 
         self.check_buttons = []  # Store references to check button frames
@@ -115,6 +115,7 @@ class Question(object):  # Pour les questions (type qcm par def)
             result_text = "Correct!" if is_correct else "Incorrect!"
             color = "green" if is_correct else "red"
 
+
             # Create result label
             result_label = ttk.Label(
                 parent,
@@ -122,6 +123,17 @@ class Question(object):  # Pour les questions (type qcm par def)
                 foreground=color
             )
             result_label.pack(pady=5)
+            if not self.eval:
+                for i, button in enumerate(self.check_buttons):
+                    if button['text_label'].cget("text") in self.answer:
+                        button['image_label'].configure(image=self.image_checked)
+                        self.response_vars[i] = tk.BooleanVar(value=True)
+                    else:
+                        button['image_label'].configure(image=self.image_unchecked)
+                        self.response_vars[i] = tk.BooleanVar(value=False)
+
+
+    
 
     def get_question(self):
         return self.question

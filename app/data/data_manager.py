@@ -54,18 +54,18 @@ class QuestionFile(JsonFile): #Pour les fichiers json contenant les questions
 		return data#sous forme {"theme":[q1, q2, ...]} avec les Q sous forme d objets
 
 class UserFile(JsonFile):
-"""
-Pour les fichiers contenant les donnees des utilisateurs
-"""
+	"""
+	Pour les fichiers contenant les donnees des utilisateurs
+	"""
 	def __init__(self, path):
 		super().__init__(path) #heritage de la classe des fichier json
 		self.sorted_users = self.sort_data() #donnees une fois traitees
 	
 	def sort_data(self):
-	"""
-	permet de trier les donnees bruts du json
-	Out : un dico contenant les objets utilisateurs instancies
-	"""
+		"""
+		permet de trier les donnees bruts du json
+		Out : un dico contenant les objets utilisateurs instancies
+		"""
 		users = {}
 		for user in self.data.keys(): #recupere les donnees du ficier json et les traite 
 			users[user]=User(user, self.data[user]["grades"]) #creer un dico contenant les users

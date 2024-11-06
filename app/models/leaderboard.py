@@ -1,18 +1,18 @@
 class Leaderboard(object): #classe de la leaderboard
-"""
-Classe de la leaderboard soit 
-le classement entre les utilisateurs
-base sur leurs moyennes
-"""
+	"""
+	Classe de la leaderboard soit
+	le classement entre les utilisateurs
+	base sur leurs moyennes
+	"""
 	def __init__(self, user_list):
 		self.user_list = user_list #liste d utilisateurs sous forme de dico
 		self.board = user_list.values() #tous les users, arvitraire car ecrase
 
 	def get_ordered_board(self):
-	"""
-	Permet de trier la liste des utilisateurs en fonction de leurs moyennes
-	Tri selection
-	"""
+		"""
+		Permet de trier la liste des utilisateurs en fonction de leurs moyennes
+		Tri selection
+		"""
 		new_board = []
 		user_list = list(self.user_list.values())
 		for u in range(len(self.user_list)): #tri insertion
@@ -23,11 +23,11 @@ base sur leurs moyennes
 		self.board = new_board #assigne le nouveau tableau
 
 	def refresh_board(self):
-	"""
-	Permet d actualiser le tableau des infos de la leaderboard
-	(nom, notes, moyenne)
-	Out : le tableau trie
-	"""
+		"""
+		Permet d actualiser le tableau des infos de la leaderboard
+		(nom, notes, moyenne)
+		Out : le tableau trie
+		"""
 		self.get_ordered_board()
 		board = []
 		for user in self.board: #effectue un nouveau tableau trie par la moy contenant nom, notes en moy 
