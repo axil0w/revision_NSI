@@ -1,6 +1,9 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
+from app.models.question import Question
+
+
 class RevisionMode(tk.Frame):
     def __init__(self, master, switch_frame):
         super().__init__(master)
@@ -11,6 +14,9 @@ class RevisionMode(tk.Frame):
 
         # Affiche l'interface initiale
         self.show_initial_view()
+
+        question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e", True)
+        question.start(self, 2)
 
     def create_widgets(self):
         """Crée et configure les widgets de l'interface RevisionMode"""

@@ -1,7 +1,24 @@
+import time
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
+import random
+class QuestionManager(object):
+    def __init__(self, question_list):
+        self.question_list = question_list
+        self.category_list = list(self.question_list.keys())
 
+        def get_question_list(self):
+            return self.question_list
+
+        def get_category_question(self, category):
+            question = self.question_list[category]
+            return question
+
+        def get_ran_question(self, category=""):
+            if category=="":
+                category = random.choice(self.category_list)
+            return random.choice(self.question_list[category])
 class Question(object):  # Pour les questions (type qcm par def)
     def __init__(self, question, proposition, answer, subject, category, eval):
         self.question = question  # queston en elle meme
@@ -11,24 +28,26 @@ class Question(object):  # Pour les questions (type qcm par def)
         self.category = category  # theme de la question
         self.eval = eval  # si la question est une question d'evalution
 
-
         self.check_buttons = []  # Store references to check button frames
         # Store response variables for each option
         self.response_vars = []
+    def start(self, parent, nb_questions):
+        self.questions_restantes = nb_questions
+        self.create_canvas(parent)
 
     def create_canvas(self, parent):
         # Create main canvas
-        canvas = tk.Canvas(parent, width=400, height=500, bg='white')
-        canvas.pack(expand=True, fill='both')
+        self.move = False
+        self.canvas = tk.Canvas(parent, width=400, height=500, bg='white')
+        self.canvas.pack(expand=True, fill='both')
 
         # Create frame inside canvas for widgets
-        frame = ttk.Frame(canvas)
-        canvas.create_window(0, 0, window=frame, anchor='nw')
+        frame = ttk.Frame(self.canvas)
+        self.canvas.create_window(0, 0, window=frame, anchor='nw')
 
         # Question label
-        question_text = self.question
-        question_label = ttk.Label(frame, text=question_text, wraplength=380)
-        question_label.pack(pady=10, padx=10)
+        self.question_label = ttk.Label(frame, text=self.question, wraplength=380)
+        self.question_label.pack(pady=10, padx=10)
 
         # Load and store images as instance variables
         self.image_unchecked = ImageTk.PhotoImage(
@@ -95,9 +114,9 @@ class Question(object):  # Pour les questions (type qcm par def)
 
         # Update scroll region after widgets are added
         frame.update_idletasks()
-        canvas.configure(scrollregion=canvas.bbox('all'))
+        self.canvas.configure(scrollregion=self.canvas.bbox('all'))
 
-        return canvas
+        return self.canvas
 
     def toggle_option(self, var, index):
         """Toggle the selected state of an option"""
@@ -131,9 +150,16 @@ class Question(object):  # Pour les questions (type qcm par def)
                     else:
                         button['image_label'].configure(image=self.image_unchecked)
                         self.response_vars[i] = tk.BooleanVar(value=False)
+            self.next_question(parent)
 
+    def next_question(self, parent):
 
-    
+        if self.questions_restantes == 0:
+            self.canvas.destroy()
+            parent.switch_frame("MainMenu")
+        else:
+            self.questions_restantes -= 1
+            self.question_label.configure(text="re")
 
     def get_question(self):
         return self.question
