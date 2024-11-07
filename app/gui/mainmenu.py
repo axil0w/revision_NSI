@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-from app.models.question import Question, TextQuestion
+from app.models.question import Question
 # Classe pour le menu principal
 class MainMenu(tk.Frame):
     def __init__(self, master, switch_frame):

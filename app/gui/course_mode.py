@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
-class CoursMode(tk.Frame):
+class CourseMode(tk.Frame):
     def __init__(self, master, switch_frame):
         super().__init__(master)
         self.switch_frame = switch_frame
@@ -87,15 +87,15 @@ class ArchitecturePage(tk.Frame):
         self.create_widgets() 
 
     def create_widgets(self):
-        self.image_archicours1 = Image.open("archicours2.png")  
+        self.image_archicours1 = Image.open("app\\assets\\images\\archicours2.png")
         self.image_archicours1 = self.image_archicours1.resize((500, 700))  
         self.photo1 = ImageTk.PhotoImage(self.image_archicours1)
 
-        self.image_archicours2 = Image.open("architecturefiche.png")  
+        self.image_archicours2 = Image.open("app\\assets\\images\\architecturefiche.png")
         self.image_archicours2 = self.image_archicours2.resize((500, 700))  
         self.photo2 = ImageTk.PhotoImage(self.image_archicours2)
 
-        self.image_archicours3 = Image.open("interfacefiche.png")  
+        self.image_archicours3 = Image.open("app\\assets\\images\\interfacefiche.png")
         self.image_archicours3 = self.image_archicours3.resize((500, 700))  
         self.photo3 = ImageTk.PhotoImage(self.image_archicours3)
 
@@ -120,7 +120,7 @@ class ArchitecturePage(tk.Frame):
         self.back_button.pack(pady=10)
 
     def go_back(self):
-        self.switch_frame("CoursMode")
+        self.switch_frame("CourseMode")
 
 class ReseauxPage(tk.Frame):
     def __init__(self, master, switch_frame):
@@ -135,7 +135,7 @@ class ReseauxPage(tk.Frame):
 
     def create_widgets(self):
         # Image
-        self.image = Image.open("reseauxcours.png")  
+        self.image = Image.open("app\\assets\\images\\reseauxcours.png")
         self.image = self.image.resize((600, 800))  
         self.photo = ImageTk.PhotoImage(self.image)
 
@@ -153,7 +153,7 @@ class ReseauxPage(tk.Frame):
         self.back_button.pack(pady=10)
 
     def go_back(self):
-        self.switch_frame("CoursMode")
+        self.switch_frame("CourseMode")
 
 
 class OopPage(tk.Frame):
@@ -169,7 +169,7 @@ class OopPage(tk.Frame):
 
     def create_widgets(self):
         # Image
-        self.image = Image.open("oopcours.png")  
+        self.image = Image.open("app\\assets\\images\\oopcours.png")
         self.image = self.image.resize((600, 800)) 
         self.photo = ImageTk.PhotoImage(self.image)
 
@@ -187,7 +187,7 @@ class OopPage(tk.Frame):
         self.back_button.pack(pady=10)
 
     def go_back(self):
-        self.switch_frame("CoursMode")
+        self.switch_frame("CourseMode")
 
 
 class BddPage(tk.Frame):
@@ -203,7 +203,7 @@ class BddPage(tk.Frame):
 
     def create_widgets(self):
         # Image
-        self.image = Image.open("bddfiche.png")  
+        self.image = Image.open("app\\assets\\images\\bddfiche.png")
         self.image = self.image.resize((600, 800))  
         self.photo = ImageTk.PhotoImage(self.image)
 
@@ -220,4 +220,4 @@ class BddPage(tk.Frame):
         self.back_button.pack(pady=10)
 
     def go_back(self):
-        self.switch_frame("CoursMode")
+        self.switch_frame("CourseMode")

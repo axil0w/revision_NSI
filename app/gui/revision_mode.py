@@ -63,8 +63,7 @@ class RevisionMode(tk.Frame):
         self.title_label.pack(pady=20)
         self.enter_button.pack(pady=10)
         self.back_button.pack(pady=10)
-        question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e", True)
-        question.start(self, 2)
+
 
     def show_revision_view(self):
         self.title_label.pack_forget()
@@ -75,6 +74,9 @@ class RevisionMode(tk.Frame):
         self.new_content_label.pack(pady=20)
         self.back_to_main_button.pack(pady=10)
 
+        self.question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e", False)
+        self.question.start(self, 2)
+
     def go_back(self):
         """Retourne au menu principal ou à la vue initiale du mode révision."""
         # Masque les widgets de la vue de révision
@@ -83,6 +85,6 @@ class RevisionMode(tk.Frame):
 
         # Réaffiche l'interface initiale
         self.show_initial_view()
-
+        self.question.kill(self)
         # Retourne au menu principal
         self.switch_frame("MainMenu")

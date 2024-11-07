@@ -1,24 +1,36 @@
-import time
+import random
 import tkinter as tk
 from tkinter import ttk
+
 from PIL import Image, ImageTk
-import random
-class QuestionManager(object):
-    def __init__(self, question_list):
-        self.question_list = question_list
-        self.category_list = list(self.question_list.keys())
 
-        def get_question_list(self):
-            return self.question_list
+questions_qcm = [
+    # Architecture
+    ("Quels section n'appartient pas au diagramme de Van Neuman ?", ["Arithmetic unit", "Control unit", "Data unit", "Register"], "Data unit", ["diagramme", 0]),
+    ("Qu'est ce que l'assembleur ?", ["La connexion entre les registres", "Le groupement des composants", "Un programme de base", "Le language de programmation initial"], "Le language de programmation initial", ["voc", 1]),
+    ("Choisir le bon ordre du diagramme interface machine - utilisateur :", ["OS - Logiciel - matériel- utilisateur", "Matériel - OS - Logiciel - utilisateur", "OS - matériel - Logiciel - utilisateur", "Logiciel - utilisateur - OS - matériel"], "Matériel - OS - Logiciel - utilisateur", ["diagramme", 1]),
+    ("Quelle est la différence entre #85 et 85 ?", ["85 est la valeur, #85 l'adresse 85", "#85 est la valeur, 85 l'adresse 85", "Il n'y en a pas : 85 et #85 sont la valeur", "Il n'y en a pas : 85 et #85 sont l'adresse"], "85 est la valeur, #85 l'adresse 85", ["voc", 2]),
 
-        def get_category_question(self, category):
-            question = self.question_list[category]
-            return question
+    # Programmation orientée objet (OOP)
+    ("Sélectionnez le Getter :", ["self.variable = var", "Setter", "return self.variable", "return Quechua"], "return self.variable", ["voc", 0]),
+    ("Quels sont les différent types de variables spécifiques en Oop ?", ["Variables dynamiques", "Variables d'instances", "Variables de classes", "Objets"], ["Variables d'instances", "Variables de classes"], ["voc", 1]),
+    ("Quels sont les avantages de la Oop ?", ["Encapsulation", "Lisibilité", "Ordination", "Instantiation"], ["Encapsulation", "Lisibilité"], ["oop", 0]),
+    ("Syntaxe de la définition d'une classe :", ["class Exemple(object):", "class exemple:", "class Exemple:", "class Exemple()"], ["class Exemple(object):", "class Exemple:", "class Exemple()"], ["syntaxe", 1]),
+    ("Quelles sont les possibilités de la Oop ?", ["Héritage", "Surcharge", "Arborescence", "Différence"], ["Héritage", "Surcharge"], ["oop", 1]),
 
-        def get_ran_question(self, category=""):
-            if category=="":
-                category = random.choice(self.category_list)
-            return random.choice(self.question_list[category])
+    # Réseaux
+    ("Comment s'appelle le service qui permet de faire le lien entre une IP et un nom de domaine ?", ["Internet", "DNS", "ARP", "HTTP"], "DNS", ["voc", 0]),
+    ("Vous soupçonnez que des paquets se perdent entre votre ordinateur et leur destination. Quelle commande utiliseriez-vous pour trouver la source du problème efficacement ?", ["ipconfig", "traceroute", "nslookup", "ping"], "traceroute", ["code", 0]),
+    ("Combien y-a-t-il de couches dans le modèle OSI ?", ["7", "5", "5", "6"], "7", ["schema", 1]),
+    ("À quoi correspond le port 80 ?", ["HTTP", "SMTP", "FTP", "SSH"], "HTTP", ["voc", 1]),
+
+    # Bases de Données (BDD)
+    ("Quelle est la principale fonction d'un système de gestion de bases de données (SGBD) ?", ["Gérer le matériel informatique", "Stocker, modifier et extraire des données", "Créer des applications", "Assurer la sécurité des ordinateurs"], "Stocker, modifier et extraire des données", ["coo", 0]),
+    ("Quel langage est utilisé pour interagir avec les bases de données relationnelles ?", ["HTML", "Java", "Python", "SQL"], "SQL", ["voc", 0]),
+    ("Qu'est-ce qu'une clé primaire ?", ["Un identifiant unique pour chaque enregistrement", "Une colonne avec des valeurs nulles", "Un champ pour les relations entre tables", "Un mot-clé SQL"], "Un identifiant unique pour chaque enregistrement", ["voc", 1]),
+    ("Quelle commande SQL récupère des données d'une table ?", ["INSERT", "UPDATE", "SELECT", "DELETE"], "SELECT", ["code", 0])
+]
+
 class Question(object):  # Pour les questions (type qcm par def)
     def __init__(self, question, proposition, answer, subject, category, eval):
         self.question = question  # queston en elle meme
@@ -31,22 +43,24 @@ class Question(object):  # Pour les questions (type qcm par def)
         self.check_buttons = []  # Store references to check button frames
         # Store response variables for each option
         self.response_vars = []
+        self.score = 0
+        self.tries = 0
+
     def start(self, parent, nb_questions):
         self.questions_restantes = nb_questions
         self.create_canvas(parent)
 
     def create_canvas(self, parent):
         # Create main canvas
-        self.move = False
-        self.canvas = tk.Canvas(parent, width=400, height=500, bg='white')
-        self.canvas.pack(expand=True, fill='both')
+        self.canvas = tk.Canvas(parent, width=400, height=500, bg='#871E1C')
+        self.canvas.pack(expand=True, fill='both', padx=0)
 
         # Create frame inside canvas for widgets
-        frame = ttk.Frame(self.canvas)
-        self.canvas.create_window(0, 0, window=frame, anchor='nw')
+        frame = tk.Frame(self.canvas, bg="#871E1C")
+        self.canvas.create_window(0, 0, window=frame, anchor='nw', )
 
         # Question label
-        self.question_label = ttk.Label(frame, text=self.question, wraplength=380)
+        self.question_label = tk.Label(frame, text=self.question, wraplength=380, bg="#871E1C", fg="white")
         self.question_label.pack(pady=10, padx=10)
 
         # Load and store images as instance variables
@@ -64,23 +78,33 @@ class Question(object):  # Pour les questions (type qcm par def)
             self.response_vars.append(var)
 
             # Create a frame for each option
-            option_frame = ttk.Frame(frame)
+            option_frame = tk.Frame(frame, bg="#871E1C")
             option_frame.pack(pady=2, padx=20, anchor='w')
 
             # Create label with image
-            image_label = ttk.Label(
+            image_label = tk.Label(
                 option_frame,
+                bg="#871E1C",
+                fg="white",
                 image=self.image_unchecked,
                 cursor='hand2'
             )
             image_label.pack(side='left', padx=(0, 10))
 
+            self.bottom_frame = tk.Frame(self.canvas, bg="#871E1C")
+            self.bottom_frame.pack(side='bottom', fill='x', pady=(20, 10))
+
+            # Add spacer to push content to bottom
+            tk.Frame(self.canvas, bg="#871E1C", height=50).pack(fill='x', expand=True)
+
             # Create text label
-            text_label = ttk.Label(
+            text_label = tk.Label(
                 option_frame,
                 text=prop,
+                bg="#871E1C",
+                fg="white",
                 cursor='hand2',
-                font=("Montserra",17)
+                font=("Montserra", 17)
             )
             text_label.pack(side='left')
 
@@ -98,8 +122,8 @@ class Question(object):  # Pour les questions (type qcm par def)
             })
 
         # Validate button
-        validate_button = ttk.Button(
-            frame,
+        validate_button = tk.Button(
+            self.bottom_frame,
             text="Valider",
             command=lambda: self.validate_answer(parent)
         )
@@ -109,13 +133,11 @@ class Question(object):  # Pour les questions (type qcm par def)
         info_frame = ttk.Frame(frame)
         info_frame.pack(fill='x', padx=10, pady=5)
 
-        ttk.Label(info_frame, text=f"Sujet: {self.subject}").pack(side='left')
-        ttk.Label(info_frame, text=f"Catégorie: {self.category}").pack(side='right')
-
         # Update scroll region after widgets are added
         frame.update_idletasks()
         self.canvas.configure(scrollregion=self.canvas.bbox('all'))
-
+        self.score+=1
+        self.next_question(parent)
         return self.canvas
 
     def toggle_option(self, var, index):
@@ -131,17 +153,7 @@ class Question(object):  # Pour les questions (type qcm par def)
         response = self.response_vars
         if response:
             is_correct = self.check_answer(response)
-            result_text = "Correct!" if is_correct else "Incorrect!"
-            color = "green" if is_correct else "red"
-
-
-            # Create result label
-            result_label = ttk.Label(
-                parent,
-                text=result_text,
-                foreground=color
-            )
-            result_label.pack(pady=5)
+            self.tries += 1
             if not self.eval:
                 for i, button in enumerate(self.check_buttons):
                     if button['text_label'].cget("text") in self.answer:
@@ -150,16 +162,116 @@ class Question(object):  # Pour les questions (type qcm par def)
                     else:
                         button['image_label'].configure(image=self.image_unchecked)
                         self.response_vars[i] = tk.BooleanVar(value=False)
-            self.next_question(parent)
+            if is_correct:
+                self.score += 1
+                self.next_question(parent)
+
+    def show_score(self, parent):
+        # Create new window
+        score_window = tk.Toplevel(parent)
+        score_window.title("Score")
+        score_window.geometry("400x200")
+        score_window.configure(bg='#871E1C')
+
+        # Center the window
+        width = 400
+        height = 200
+        screen_width = parent.winfo_screenwidth()
+        screen_height = parent.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        score_window.geometry('%dx%d+%d+%d' % (width, height, x, y))
+
+        # Add score label
+        score_label = tk.Label(
+            score_window,
+            text=f"{self.score}/{self.tries}",
+            bg='#871E1C',
+            fg='white',
+            font=("Helvetica", 60, "bold")
+        )
+        score_label.pack(expand=True)
+
+        # Function to close window
+        def close_window():
+            score_window.destroy()
+
+        # Schedule window closure
+        score_window.after(5000, close_window)
 
     def next_question(self, parent):
-
         if self.questions_restantes == 0:
-            self.canvas.destroy()
-            parent.switch_frame("MainMenu")
+            self.show_score(parent)
+            self.kill(parent)
         else:
             self.questions_restantes -= 1
-            self.question_label.configure(text="re")
+            # Select new random question
+            question = random.choice(questions_qcm)
+
+            # Update question text
+            self.question_label.configure(text=question[0])
+
+            # Update instance variables
+            self.question = question[0]
+            self.proposition = question[1]
+            self.answer = question[2]
+            self.subject = question[3][0]
+            self.category = question[3][1]
+
+            # Clear existing check buttons
+            for button in self.check_buttons:
+                button['frame'].destroy()
+
+            self.check_buttons = []
+            self.response_vars = []
+
+            # Create new check buttons for each proposition
+            for i, prop in enumerate(self.proposition):
+                # Create a BooleanVar for this option
+                var = tk.BooleanVar()
+                self.response_vars.append(var)
+
+                # Create a frame for each option
+                option_frame = tk.Frame(self.canvas, bg="#871E1C")
+                option_frame.pack(pady=2, padx=20, anchor='w')
+
+                # Create label with image
+                image_label = tk.Label(
+                    option_frame,
+                    bg="#871E1C",
+                    fg="white",
+                    image=self.image_unchecked,
+                    cursor='hand2'
+                )
+                image_label.pack(side='left', padx=(0, 10))
+
+                # Create text label
+                text_label = tk.Label(
+                    option_frame,
+                    text=prop,
+                    bg="#871E1C",
+                    fg="white",
+                    cursor='hand2',
+                    font=("Montserra", 17)
+                )
+                text_label.pack(side='left')
+
+                # Bind click events to both labels
+                image_label.bind('<Button-1>', lambda e, v=var, idx=i: self.toggle_option(v, idx))
+                text_label.bind('<Button-1>', lambda e, v=var, idx=i: self.toggle_option(v, idx))
+
+                # Store reference to components
+                self.check_buttons.append({
+                    'frame': option_frame,
+                    'image_label': image_label,
+                    'text_label': text_label,
+                    'value': prop,
+                    'var': var
+                })
+
+
+    def kill(self, parent):
+        self.canvas.destroy()
 
     def get_question(self):
         return self.question
@@ -176,50 +288,7 @@ class Question(object):  # Pour les questions (type qcm par def)
                 return False
         return True
 
-class TextQuestion(Question):  # Pour les question avec entrees
-    def __init__(self, question, answer, proposition, subject, category):
-        super().__init__(question, proposition, answer, subject, category)  # heritage de la classe questions
 
-    def create_canvas(self, parent):
-        canvas = tk.Canvas(parent, width=400, height=500, bg='white')
-        canvas.pack(expand=True, fill='both')
-
-        frame = ttk.Frame(canvas)
-        canvas.create_window(0, 0, window=frame, anchor='nw')
-
-        # Question label
-        question_label = ttk.Label(frame, text=self.question, wraplength=380)
-        question_label.pack(pady=10, padx=10)
-
-        # Text entry
-        self.response_var = tk.StringVar()
-        entry = ttk.Entry(frame, textvariable=self.response_var)
-        entry.pack(pady=10, padx=10)
-
-        # Validate button
-        validate_button = ttk.Button(
-            frame,
-            text="Valider",
-            command=lambda: self.validate_answer(parent)
-        )
-        validate_button.pack(pady=10)
-
-        # Subject and category info
-        info_frame = ttk.Frame(frame)
-        info_frame.pack(fill='x', padx=10, pady=5)
-
-        ttk.Label(info_frame, text=f"Sujet: {self.subject}").pack(side='left')
-        ttk.Label(info_frame, text=f"Catégorie: {self.category}").pack(side='right')
-
-        frame.update_idletasks()
-        canvas.configure(scrollregion=canvas.bbox('all'))
-
-        return canvas
-
-    def check_enter(self, prop):  # verifie si entree juste
-        proposition = prop.isalnum().lower()  # format evitant des erreurs de mise en forme (exe : maj)
-        answer = self.answer.isalnum().lower()
-        return proposition == answer
 
 # Example usage:
 if __name__ == "__main__":

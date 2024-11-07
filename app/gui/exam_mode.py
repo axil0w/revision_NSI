@@ -1,5 +1,8 @@
 import tkinter as tk
 
+from app.models.question import Question
+
+
 class ExamMode(tk.Frame):
     def __init__(self, master, switch_frame):
         super().__init__(master)
@@ -30,6 +33,8 @@ class ExamMode(tk.Frame):
             activebackground=self.highlight_color, activeforeground=self.text_color
         )
         self.back_button.pack(pady=10)
+        self.question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e", True)
+        self.question.start(self, 2)
 
     def go_back(self):
         """Retourne au menu principal"""

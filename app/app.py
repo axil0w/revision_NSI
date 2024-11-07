@@ -3,7 +3,7 @@ from app.gui.mainmenu import MainMenu
 from app.gui import *
 from app.gui.revision_mode import RevisionMode
 from app.gui.exam_mode import ExamMode
-from app.gui.course_mode import CourseMode
+from app.gui.course_mode import CourseMode, ArchitecturePage, ReseauxPage, OopPage, BddPage
 from app.gui.usermenu import UserMenu
 class NSIQuizApp(tk.Tk):
     def __init__(self):
@@ -17,7 +17,7 @@ class NSIQuizApp(tk.Tk):
         self.attributes("-fullscreen", True)
 
         # Création de toutes les frames
-        for frame_class in (MainMenu, RevisionMode, CourseMode, ExamMode, UserMenu,ArchitecturePage,ReseauxPage,OopPage,BddPage):
+        for frame_class in (MainMenu, RevisionMode, CourseMode, ExamMode, UserMenu, ArchitecturePage, ReseauxPage, OopPage, BddPage):
             frame = frame_class(self, self.show_frame)
             self.frames[frame_class.__name__] = frame
 
@@ -34,5 +34,4 @@ class NSIQuizApp(tk.Tk):
         self.attributes("-fullscreen", self.state)
 
     def quitting(self, event):
-        print("fin")
         self.quit()
