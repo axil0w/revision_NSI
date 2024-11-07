@@ -17,7 +17,7 @@ class NSIQuizApp(tk.Tk):
         self.attributes("-fullscreen", True)
 
         # Création de toutes les frames
-        for frame_class in (MainMenu, RevisionMode, CourseMode, ExamMode, UserMenu):
+        for frame_class in (MainMenu, RevisionMode, CourseMode, ExamMode, UserMenu,ArchitecturePage,ReseauxPage,OopPage,BddPage):
             frame = frame_class(self, self.show_frame)
             self.frames[frame_class.__name__] = frame
 
