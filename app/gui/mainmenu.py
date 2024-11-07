@@ -51,7 +51,7 @@ class MainMenu(tk.Frame):
                                      bg="#1F6F8B", fg="white", relief="flat")
         self.exam_button.pack(fill="x", pady=10)
 
-        # Bouton "users" en haut à gauche avec image détourée
+        # Bouton "users" 
         self.user_image = Image.open(image_path + "login.png").resize((150, 150))
         self.user_image = ImageTk.PhotoImage(self.user_image)
 
