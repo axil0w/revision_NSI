@@ -5,12 +5,11 @@ Plusieurs types de questions sont implémentées:
 	- QCM
 	- Réponse attendues à une question (Via un champ de texte) 
 La plateforme possède plusieurs modes:
-	- révision (avec séries de questions sur un même sujet prédéfini)
+	- révision (avec séries de questions)
 	- cours (qui présente les cours)
 	- examen (avec des questions aléatoires)
 Le mode révision permet :
-	- d'enchainer des séries de questions sur un thème choisi
-	- de choisir un sujet parmis d'autres
+	- d'enchainer des séries de questions
 	- d'avoir une explication quant aux questions avec une réponse fausse
 Le mode cours permet :
 	- d'enchainer des notions de cours
@@ -34,11 +33,9 @@ Le menu doit contenir des indications écrites :
 
 Le Projet doit contenir de l'orienté objet
 Le Projet doit être implémenté de telle manière :
-	- à pouvoir ajouter des questions et des thèmes via les fichiers json
-Les questions et les autres données relative à la plateforme sont stockées à part
 La charte graphique doit être cohérente
 Les sons doivent être libres de droit
-Les images doivent être libres de droit
+Les images doivent être libres de droit/ apache 2.0
 Le jeu est codé en pyton3/tkinter
 
 
@@ -51,7 +48,6 @@ Il y a des questions nécessitant une réponse unique
 La plateforme a plusieurs modes de révision
 
 Il y a un mode de révision
-Le mode révision est sous forme de séries de questions
 Les questions du mode révisions sont sur un sujet choisis
 Les réponses fausses dans le mode révision aboutissent sur une explication
 
