@@ -41,13 +41,16 @@ class UserMenu(tk.Frame):
         self.display_leaderboard()
 
     def go_back(self):
+        """
+        revient a la frame MainMenu
+        """
         self.switch_frame("MainMenu")
 
     def add_user(self):
         """
         Fonction pour ajouter un utilisateur via une boîte de dialogue.
         """
-        name = simpledialog.askstring("Nom de l'utilisateur", "Entrez le nom de l'utilisateur:")
+        name = simpledialog.askstring("Nom de l'utilisateur", "Entrez le nom de l'utilisateur:")#demande a l'utilisateur via un chatbox
         
         if name:
             grades_str = simpledialog.askstring("Notes de l'utilisateur", "Entrez les notes séparées par des virgules:")
@@ -82,8 +85,9 @@ class UserMenu(tk.Frame):
         leaderboard = Leaderboard(self.user_manager.get_user_list())  # Initialise Leaderboard
         leaderboard_data = leaderboard.refresh_board()  # Rafraîchir pour obtenir le leaderboard trié
 
-        if leaderboard_data:
-            for username, grades, avg in leaderboard_data:
+        if leaderboard_data:#si il y a des données
+            for username, grades, avg in leaderboard_data:#pour username , grades et moyenne dans les data
+                #création d'un label pour affichier le leaderboard et le pack
                 user_label = tk.Label(
                     self, text=f"{username}: Moyenne = {avg}, Notes = {grades}",
                     font=("Montserrat", 14), fg=self.text_color, bg=self.bg_color
@@ -95,3 +99,4 @@ class UserMenu(tk.Frame):
                 font=("Montserrat", 14), fg=self.text_color, bg=self.bg_color
             )
             no_data_label.pack()
+            #si pas de data alors écrire "Aucune..."
