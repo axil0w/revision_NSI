@@ -8,8 +8,8 @@ class ExamMode(tk.Frame):
         super().__init__(master)
         self.switch_frame = switch_frame
 
-        self.bg_color = "#2B4162"         
-        self.button_color = "#FA9F42"     
+        self.bg_color = "#2B4162"#couleure du background
+        self.button_color = "#FA9F42"#couleur du bouton     
         self.title_color = "#871E1C"      
         self.text_color = "#F0BCC5"       
         self.highlight_color = "#0B6E4F"  
