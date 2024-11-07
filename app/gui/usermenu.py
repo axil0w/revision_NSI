@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import simpledialog
-from models.board import Leaderboard
-from models.user import UserManager
+from app.models.board import Leaderboard
+from app.models.user import UserManager
 
 class UserMenu(tk.Frame):
     def __init__(self, master, switch_frame, user_list=None):

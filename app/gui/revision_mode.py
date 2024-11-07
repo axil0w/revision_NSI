@@ -75,7 +75,7 @@ class RevisionMode(tk.Frame):
         self.back_to_main_button.pack(pady=10)
 
         self.question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e", False)
-        self.question.start(self, 2)
+        self.question.start(self, 10)
 
     def go_back(self):
         """Retourne au menu principal ou à la vue initiale du mode révision."""

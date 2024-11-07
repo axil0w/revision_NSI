@@ -34,7 +34,7 @@ class ExamMode(tk.Frame):
         )
         self.back_button.pack(pady=10)
         self.question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e", True)
-        self.question.start(self, 2)
+        self.question.start(self, 10)
 
     def go_back(self):
         """Retourne au menu principal"""
