@@ -1,6 +1,8 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
+from app.models.question import Question
+
 
 class RevisionMode(tk.Frame):
     def __init__(self, master, switch_frame):
@@ -27,7 +29,7 @@ class RevisionMode(tk.Frame):
             fg=self.title_color, bg=self.bg_color
         )
 
-        self.revision_image = Image.open("app\\assets\\images\\bddfiche.png")
+        self.revision_image = Image.open("app\\assets\\images\\enter.png")
         self.revision_image = self.revision_image.resize((80, 80))
         self.revision_image = ImageTk.PhotoImage(self.revision_image)
 
@@ -61,6 +63,8 @@ class RevisionMode(tk.Frame):
         self.title_label.pack(pady=20)
         self.enter_button.pack(pady=10)
         self.back_button.pack(pady=10)
+        question = Question("rrr", ("ah", "r"), ("ah"), "OOP", "e", True)
+        question.start(self, 2)
 
     def show_revision_view(self):
         self.title_label.pack_forget()
