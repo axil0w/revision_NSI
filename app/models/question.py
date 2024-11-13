@@ -65,10 +65,10 @@ class Question(object):  # Pour les questions (type qcm par def)
 
         # Load and store images as instance variables
         self.image_unchecked = ImageTk.PhotoImage(
-            Image.open("app\\assets\\images\\checkbox_off.png").resize((30, 30))
+            Image.open("app/assets/images/checkbox_off.png").resize((30, 30))
         )
         self.image_checked = ImageTk.PhotoImage(
-            Image.open("app\\assets\\images\\checkbox_on.png").resize((30, 30))
+            Image.open("app/assets/images/checkbox_on.png").resize((30, 30))
         )
 
         # Create check buttons for each proposition
