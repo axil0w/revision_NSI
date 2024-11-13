@@ -29,7 +29,7 @@ class RevisionMode(tk.Frame):
             fg=self.title_color, bg=self.bg_color
         )
 
-        self.revision_image = Image.open("app\\assets\\images\\enter.png")
+        self.revision_image = Image.open("app/assets/images/enter.png")
         self.revision_image = self.revision_image.resize((80, 80))
         self.revision_image = ImageTk.PhotoImage(self.revision_image)
 
