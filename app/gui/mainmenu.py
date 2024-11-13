@@ -24,7 +24,7 @@ class MainMenu(tk.Frame):
         button_frame.pack(pady=50)
 
         # Charger les images pour les icônes des boutons
-        image_path = "app\\assets\\images\\"
+        image_path = "app/assets/images/"
 
         self.icon_revision = ImageTk.PhotoImage(Image.open(image_path + "revision.png").resize((30, 30)))
         self.icon_course = ImageTk.PhotoImage(Image.open(image_path + "cours.png").resize((30, 30)))
