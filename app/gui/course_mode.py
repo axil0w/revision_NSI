@@ -105,21 +105,21 @@ class ArchitecturePage(tk.Frame):#classe architecture avec creation de frame
         self.create_widgets() 
 
     def create_widgets(self):
-        self.image_archicours1 = Image.open("app\\assets\\images\\archicours2.png")
+        self.image_archicours1 = Image.open("app/assets/images/archicours2.png")
         self.image_archicours1 = self.image_archicours1.resize((500, 700))  
         self.photo1 = ImageTk.PhotoImage(self.image_archicours1)
         """
         Creation des widgets de la page architecture
         """
-        self.image_archicours1 = Image.open("app\\assets\\images\\archicours2.png")#ouvre l'image archi cours
+        self.image_archicours1 = Image.open("app/assets/images/archicours2.png")#ouvre l'image archi cours
         self.image_archicours1 = self.image_archicours1.resize((500, 700)) #resize l'image
         self.photo1 = ImageTk.PhotoImage(self.image_archicours1)#transforme l'image en image lisible par tkinter
 
-        self.image_archicours2 = Image.open("app\\assets\\images\\architecturefiche.png")
+        self.image_archicours2 = Image.open("app/assets/images/architecturefiche.png")
         self.image_archicours2 = self.image_archicours2.resize((500, 700))  
         self.photo2 = ImageTk.PhotoImage(self.image_archicours2)
 
-        self.image_archicours3 = Image.open("app\\assets\\images\\interfacefiche.png")
+        self.image_archicours3 = Image.open("app/assets/images/interfacefiche.png")
         self.image_archicours3 = self.image_archicours3.resize((500, 700))  
         self.photo3 = ImageTk.PhotoImage(self.image_archicours3)
 
@@ -163,11 +163,11 @@ class ReseauxPage(tk.Frame):
 
     def create_widgets(self):
         # Image
-        self.image = Image.open("app\\assets\\images\\reseauxcours.png")
+        self.image = Image.open("app/assets/images/reseauxcours.png")
         """
         Création des widgets de la page reseaux
         """
-        self.image = Image.open("app\\assets\\images\\reseauxcours.png")
+        self.image = Image.open("app/assets/images/reseauxcours.png")
         self.image = self.image.resize((600, 800))  
         self.photo = ImageTk.PhotoImage(self.image)
 
@@ -205,11 +205,11 @@ class OopPage(tk.Frame):
 
     def create_widgets(self):
         # Image
-        self.image = Image.open("app\\assets\\images\\oopcours.png")
+        self.image = Image.open("app/assets/images/oopcours.png")
         """
         Creation des widgets de la page sur la programmation orienté objet
         """
-        self.image = Image.open("app\\assets\\images\\oopcours.png")
+        self.image = Image.open("app/assets/images/oopcours.png")
         self.image = self.image.resize((600, 800)) 
         self.photo = ImageTk.PhotoImage(self.image)
 
@@ -250,7 +250,7 @@ class BddPage(tk.Frame):
         crée les widgets pour la page sur les bases de données
         """
         # Image
-        self.image = Image.open("app\\assets\\images\\bddfiche.png")
+        self.image = Image.open("app/assets/images/bddfiche.png")
         self.image = self.image.resize((600, 800))  
         self.photo = ImageTk.PhotoImage(self.image)
 
