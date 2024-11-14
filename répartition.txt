@@ -1,0 +1,5 @@
+Nathan - Fonctionnement des questions mode exam et mode entraînement 
+
+Adrien - backend Fonctionnalités principales 
+
+Marius - Front end Fonctionnalités principales 
