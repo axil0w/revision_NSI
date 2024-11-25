@@ -136,7 +136,6 @@ class Question(object):  # Pour les questions (type qcm par def)
         # Update scroll region after widgets are added
         frame.update_idletasks()
         self.canvas.configure(scrollregion=self.canvas.bbox('all'))
-        self.score+=1
         self.next_question(parent)
         return self.canvas
 
